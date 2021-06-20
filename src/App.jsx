@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
+import TodoList from './components/TodoList';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const App = () => {
   return (
     <main>
-     <h1>Welcome to React</h1>
+      
+      <TodoList />
     </main>
   );
-}
+};
 
 export default App;
-

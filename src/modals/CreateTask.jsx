@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const CreateTask = ({ modal, toggle }) => {
-  const [list, setList] = useState([]);
+const CreateTask = ({ modal, toggle, setModal, newEntry }) => {
   const [task, setTask] = useState('');
   const [description, setDescription] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTask = {
+      id: new Date().getTime(),
       description,
       task,
     };
-    setList(list.concat(newTask));
+    newEntry(newTask);
+    console.log(newTask);
+    setModal(false);
+    setTask('');
+    setDescription('');
   };
 
   const handleChange = (e) => {
@@ -27,9 +31,9 @@ const CreateTask = ({ modal, toggle }) => {
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Create Task</ModalHeader>
-      <ModalBody>
-        <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
+        <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+        <ModalBody>
           <div className='form-group'>
             <label>Task</label>
             <input
@@ -50,16 +54,16 @@ const CreateTask = ({ modal, toggle }) => {
               className='form-control'
             ></textarea>
           </div>
-        </form>
-      </ModalBody>
-      <ModalFooter>
-        <Button type='submit' color='primary' onClick={toggle}>
-          Create
-        </Button>{' '}
-        <Button color='secondary' onClick={toggle}>
-          Cancel
-        </Button>
-      </ModalFooter>
+        </ModalBody>
+        <ModalFooter>
+          <Button type='submit' color='primary'>
+            Create
+          </Button>
+          <Button color='secondary' onClick={toggle}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </form>
     </Modal>
   );
 };

@@ -13,8 +13,7 @@ const CreateTask = ({ modal, toggle, setModal, newEntry }) => {
       task,
     };
     newEntry(newTask);
-    console.log(newTask);
-    setModal(false);
+
     setTask('');
     setDescription('');
   };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CreateTask from '../modals/CreateTask';
 import Card from './Card';
 
@@ -18,11 +18,7 @@ const TodoList = () => {
   };
 
   const deleteTask = (id) => {
-    console.log(id);
-    const filterList = () => {
-      list.filter((l) => l.id !== id);
-    };
-
+    const filterList = list.filter((l) => l.id !== id);
     setList(filterList);
   };
 

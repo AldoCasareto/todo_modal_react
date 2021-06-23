@@ -44,10 +44,12 @@ const TodoList = () => {
         {list &&
           list.map((item) => (
             <Card
+              key={item.id}
               id={item.id}
               task={item.task}
               description={item.description}
               deleteTask={deleteTask}
+              item={item}
             />
           ))}
       </div>

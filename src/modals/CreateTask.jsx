@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const CreateTask = ({ modal, toggle, setModal, newEntry }) => {
+const CreateTask = ({ modal, toggle, newEntry }) => {
   const [task, setTask] = useState('');
   const [description, setDescription] = useState('');
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-// import EditTask from '../modals/EditTask';
 
-const Card = ({ id, description, task, deleteTask, updateListArray }) => {
+const Card = ({ id, description, task, deleteTask }) => {
   const [modal, setModal] = useState(false);
 
   const colors = [
@@ -31,10 +30,6 @@ const Card = ({ id, description, task, deleteTask, updateListArray }) => {
     setModal(!modal);
   };
 
-//   const updateTask = (obj) => {
-//     updateListArray(obj, id);
-//   };
-
   const handleDelete = () => {
     deleteTask(id);
   };
@@ -59,18 +54,12 @@ const Card = ({ id, description, task, deleteTask, updateListArray }) => {
 
         <div style={{ position: 'absolute', right: '20px', bottom: '20px' }}>
           <i
-            className='far fa-edit mr-3'
-            style={{ color: colors[id % 5].primaryColor, cursor: 'pointer' }}
-            onClick={() => setModal(true)}
-          ></i>
-          <i
             className='fas fa-trash-alt'
             style={{ color: colors[id % 5].primaryColor, cursor: 'pointer' }}
             onClick={handleDelete}
           ></i>
         </div>
       </div>
-      {/* <EditTask modal={modal} toggle={toggle} updateTask={updateTask} id={id} /> */}
     </div>
   );
 };
